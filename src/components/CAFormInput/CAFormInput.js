@@ -4,12 +4,6 @@ import { InputLabel, MenuItem, FormControl, TextField, Select } from "@material-
 import { INPUT_TYPE_SELECT, INPUT_TYPE_TEXT } from "providers/constants";
 
 const CAFormInput = ({ id, control, name, label, type, value = "", values = [10, 20, 30], onChange = () => {} }) => {
-    const [selectVal, setSelectVal] = useState(value);
-
-    const onChangeSelect = ({ target }) => {
-        setSelectVal(target.value);
-    };
-
     switch (type) {
         case INPUT_TYPE_SELECT:
             return (
@@ -20,9 +14,9 @@ const CAFormInput = ({ id, control, name, label, type, value = "", values = [10,
 
                     <Controller
                         as={
-                            <Select id={id} label={label} value={selectVal} onChange={(onChange, onChangeSelect)}>
+                            <Select id={id} label={label} onChange={onChange}>
                                 {values.map(({ id, value }) => (
-                                    <MenuItem key={id} value={id}>
+                                    <MenuItem key={id} value={{ id, value }}>
                                         {value}
                                     </MenuItem>
                                 ))}
@@ -38,7 +32,13 @@ const CAFormInput = ({ id, control, name, label, type, value = "", values = [10,
         case INPUT_TYPE_TEXT:
             return (
                 <FormControl fullWidth>
-                    <TextField required id={id} name={name} label={label} />
+                    <Controller
+                        as={<TextField required id={id} name={name} label={label} />}
+                        name={name}
+                        rules={{ required: "this is required" }}
+                        control={control}
+                        defaultValue=""
+                    />
                 </FormControl>
             );
         default:

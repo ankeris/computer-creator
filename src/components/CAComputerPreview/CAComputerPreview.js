@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { ListItem, ListItemIcon, ListItemText, Checkbox, Divider } from "@material-ui/core";
 import useStyles from "./ca-computer-preview-styles";
 
-export default function CAComputerPreview({ id, handleToggle, checked, name, parts }) {
+export default function CAComputerPreview({ id, handleToggle, checked, computerName, parts }) {
     const classes = useStyles();
     return (
         <Fragment key={id}>
@@ -14,7 +14,7 @@ export default function CAComputerPreview({ id, handleToggle, checked, name, par
                     classes={{
                         secondary: classes.secondary,
                     }}
-                    primary={name}
+                    primary={computerName}
                     secondary={Object.keys(parts).map((key) => (
                         <span key={key}>{parts[key].value}</span>
                     ))}

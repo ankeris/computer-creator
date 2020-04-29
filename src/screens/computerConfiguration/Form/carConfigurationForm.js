@@ -1,14 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Grid from "@material-ui/core/Grid";
+import { Grid, LinearProgress, Button } from "@material-ui/core";
 import { INPUT_TYPE_TEXT, INPUT_TYPE_SELECT } from "providers/constants";
 import CAFormInput from "components/CAFormInput/CAFormInput";
-import Button from "@material-ui/core/Button";
+import { useCreateComputer } from "providers/hooks";
 
 export default function CarConfigurationForm({ cpus, gpus, motherboards, rams, storages }) {
     const { handleSubmit, control, errors } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
+    const { isCreatingComputer, triggerCreateComputer } = useCreateComputer();
+
+    const onSubmit = ({ computerName, ...rest }) => {
+        triggerCreateComputer({ computerName, parts: rest });
     };
 
     const inputs = [
@@ -36,6 +38,11 @@ export default function CarConfigurationForm({ cpus, gpus, motherboards, rams, s
                         Submit
                     </Button>
                 </Grid>
+                {isCreatingComputer && (
+                    <Grid item xs={12}>
+                        <LinearProgress />
+                    </Grid>
+                )}
                 <Grid item xs={12}>
                     {JSON.stringify(errors).substring(0, 100)}
                 </Grid>

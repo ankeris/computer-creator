@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import CarConfigurationForm from "./Form/carConfigurationForm";
-import { useFetchParts } from "providers/hooks";
+import { useFetchParts, useCreateComputer } from "providers/hooks";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 export default function App() {

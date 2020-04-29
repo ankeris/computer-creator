@@ -1,8 +1,8 @@
 import { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllPartsRequest, getAllPartsResponse } from "modules/computer/computerPartsReducer";
-import { getAllComputersRequest, getAllComputersResponse } from "modules/computer/computerListReducer";
-import { getCpus, getGpus, getMotherboards, getRams, getStorages } from "providers/services";
+import { getAllComputersRequest, getAllComputersResponse, postComputerRequest, postComputerResponse } from "modules/computer/computerListReducer";
+import { getCpus, getGpus, getMotherboards, getRams, getStorages, postComputer } from "providers/services";
 import { getComputers } from "providers/services";
 
 export const useFetchParts = () => {
@@ -55,23 +55,23 @@ export const useComputersList = () => {
 };
 
 export const useCreateComputer = () => {
-    const computers = useSelector(({ computerList }) => computerList.computers);
-    const isFetchingComputers = useSelector(({ computerList }) => computerList.isFetchingComputers);
+    const isCreatingComputer = useSelector(({ computerList }) => computerList.isCreatingComputer);
+    const postComputerError = useSelector(({ computerList }) => computerList.postComputerError);
     const dispatch = useDispatch();
 
-    const triggerComputerListFetch = useCallback(async () => {
-        try {
-            dispatch(getAllComputersRequest());
-            const data = await getComputers();
-            dispatch(getAllComputersResponse({ computers: data }));
-        } catch (error) {
-            dispatch(getAllComputersResponse({ error }));
-        }
-    }, [dispatch]);
+    const triggerCreateComputer = useCallback(
+        async (formData) => {
+            try {
+                dispatch(postComputerRequest());
+                const data = await postComputer(formData);
+                console.log(data);
+                dispatch(postComputerResponse());
+            } catch (error) {
+                dispatch(postComputerResponse({ error }));
+            }
+        },
+        [dispatch]
+    );
 
-    useEffect(() => {
-        triggerComputerListFetch();
-    }, [triggerComputerListFetch]);
-
-    return { computers, isFetchingComputers, triggerComputerListFetch };
+    return { isCreatingComputer, triggerCreateComputer, postComputerError };
 };

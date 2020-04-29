@@ -2,71 +2,235 @@
     "COMPUTERS": [
         {
             "id": 1,
-            "name": "Magnificent Computer",
+            "computerName": "Magnificent Computer",
             "parts": {
-                "cpu": { "id": 3, "value": "Intel Core i7-9700K" },
-                "gpu": { "id": 5, "value": "AMD Radeon RX 5700 XT" },
-                "mboard": { "id": 5, "value": "MSI Z70 M5" },
-                "ram": { "id": 3, "value": "32GB DDR4" },
-                "storage": { "id": 4, "value": "246 GB" }
+                "cpu": {
+                    "id": 3,
+                    "value": "Intel Core i7-9700K"
+                },
+                "gpu": {
+                    "id": 5,
+                    "value": "AMD Radeon RX 5700 XT"
+                },
+                "mboard": {
+                    "id": 5,
+                    "value": "MSI Z70 M5"
+                },
+                "ram": {
+                    "id": 3,
+                    "value": "32GB DDR4"
+                },
+                "storage": {
+                    "id": 4,
+                    "value": "246 GB"
+                }
             }
         },
         {
             "id": 2,
-            "name": "One of a kind",
+            "computerName": "One of a kind",
             "parts": {
-                "cpu": { "id": 1, "value": "Intel Core i9-10980XE" },
-                "gpu": { "id": 1, "value": "NVIDIA Quadro RTX 5000" },
-                "mboard": { "id": 1, "value": "ASRock B450M PRO4 MicroATX" },
-                "ram": { "id": 3, "value": "32GB DDR4" },
-                "storage": { "id": 3, "value": "1024 GB SSD" }
+                "cpu": {
+                    "id": 1,
+                    "value": "Intel Core i9-10980XE"
+                },
+                "gpu": {
+                    "id": 1,
+                    "value": "NVIDIA Quadro RTX 5000"
+                },
+                "mboard": {
+                    "id": 1,
+                    "value": "ASRock B450M PRO4 MicroATX"
+                },
+                "ram": {
+                    "id": 3,
+                    "value": "32GB DDR4"
+                },
+                "storage": {
+                    "id": 3,
+                    "value": "1024 GB SSD"
+                }
             }
+        },
+        {
+            "computerName": "Silent PC",
+            "parts": {
+                "cpu": {
+                    "id": 4,
+                    "value": "Intel Core i5-9400F"
+                },
+                "gpu": {
+                    "id": 1,
+                    "value": "NVIDIA Quadro RTX 5000"
+                },
+                "motherboard": {
+                    "id": 5,
+                    "value": "MSI Z70 M5"
+                },
+                "ram": {
+                    "id": 2,
+                    "value": "16GB DDR4"
+                },
+                "storage": {
+                    "id": 2,
+                    "value": "492 GB SSD"
+                }
+            },
+            "id": 3
         }
     ],
     "CPU": [
-        { "id": 1, "value": "Intel Core i9-10980XE" },
-        { "id": 2, "value": "Intel Core i9-9900K" },
-        { "id": 3, "value": "Intel Core i7-9700K" },
-        { "id": 4, "value": "Intel Core i5-9400F" },
-        { "id": 5, "value": "AMD Ryzen 9 3900X" },
-        { "id": 6, "value": "AMD Ryzen 7 3700X" },
-        { "id": 7, "value": "AMD Ryzen 5 3600" },
-        { "id": 8, "value": "AMD Ryzen 5 2600" }
+        {
+            "id": 1,
+            "value": "Intel Core i9-10980XE"
+        },
+        {
+            "id": 2,
+            "value": "Intel Core i9-9900K"
+        },
+        {
+            "id": 3,
+            "value": "Intel Core i7-9700K"
+        },
+        {
+            "id": 4,
+            "value": "Intel Core i5-9400F"
+        },
+        {
+            "id": 5,
+            "value": "AMD Ryzen 9 3900X"
+        },
+        {
+            "id": 6,
+            "value": "AMD Ryzen 7 3700X"
+        },
+        {
+            "id": 7,
+            "value": "AMD Ryzen 5 3600"
+        },
+        {
+            "id": 8,
+            "value": "AMD Ryzen 5 2600"
+        }
     ],
     "GPU": [
-        { "id": 1, "value": "NVIDIA Quadro RTX 5000" },
-        { "id": 2, "value": "NVIDIA GeForce RTX 2070 SUPER" },
-        { "id": 3, "value": "NVIDIA GeForce GTX 1080 Ti" },
-        { "id": 4, "value": "NVIDIA Titan X (Pascal)" },
-        { "id": 5, "value": "AMD Radeon RX 5700 XT" },
-        { "id": 6, "value": "NVIDIA GeForce RTX 2060" },
-        { "id": 7, "value": "AMD Radeon RX 5700" },
-        { "id": 8, "value": "AMD Radeon RX Vega 64 Liquid" }
+        {
+            "id": 1,
+            "value": "NVIDIA Quadro RTX 5000"
+        },
+        {
+            "id": 2,
+            "value": "NVIDIA GeForce RTX 2070 SUPER"
+        },
+        {
+            "id": 3,
+            "value": "NVIDIA GeForce GTX 1080 Ti"
+        },
+        {
+            "id": 4,
+            "value": "NVIDIA Titan X (Pascal)"
+        },
+        {
+            "id": 5,
+            "value": "AMD Radeon RX 5700 XT"
+        },
+        {
+            "id": 6,
+            "value": "NVIDIA GeForce RTX 2060"
+        },
+        {
+            "id": 7,
+            "value": "AMD Radeon RX 5700"
+        },
+        {
+            "id": 8,
+            "value": "AMD Radeon RX Vega 64 Liquid"
+        }
     ],
     "MBOARD": [
-        { "id": 1, "value": "ASRock B450M PRO4 MicroATX" },
-        { "id": 2, "value": "ASUS TUF Z390-Plus" },
-        { "id": 3, "value": "MSI Z170A Gaming M5" },
-        { "id": 4, "value": "Gigabyte X470 Aorus Gaming 5" },
-        { "id": 5, "value": "MSI Z70 M5" },
-        { "id": 6, "value": "ASUS ROG Crosshair VI Hero" },
-        { "id": 7, "value": "GIGABYTE Z370 AORUS" },
-        { "id": 8, "value": "Asus ROG Strix Z390-I Gaming" }
+        {
+            "id": 1,
+            "value": "ASRock B450M PRO4 MicroATX"
+        },
+        {
+            "id": 2,
+            "value": "ASUS TUF Z390-Plus"
+        },
+        {
+            "id": 3,
+            "value": "MSI Z170A Gaming M5"
+        },
+        {
+            "id": 4,
+            "value": "Gigabyte X470 Aorus Gaming 5"
+        },
+        {
+            "id": 5,
+            "value": "MSI Z70 M5"
+        },
+        {
+            "id": 6,
+            "value": "ASUS ROG Crosshair VI Hero"
+        },
+        {
+            "id": 7,
+            "value": "GIGABYTE Z370 AORUS"
+        },
+        {
+            "id": 8,
+            "value": "Asus ROG Strix Z390-I Gaming"
+        }
     ],
     "RAM": [
-        { "id": 1, "value": "8GB DDR4" },
-        { "id": 2, "value": "16GB DDR4" },
-        { "id": 3, "value": "32GB DDR4" },
-        { "id": 4, "value": "8GB DDR3" },
-        { "id": 5, "value": "16GB DDR3" },
-        { "id": 6, "value": "32GB DDR3" }
+        {
+            "id": 1,
+            "value": "8GB DDR4"
+        },
+        {
+            "id": 2,
+            "value": "16GB DDR4"
+        },
+        {
+            "id": 3,
+            "value": "32GB DDR4"
+        },
+        {
+            "id": 4,
+            "value": "8GB DDR3"
+        },
+        {
+            "id": 5,
+            "value": "16GB DDR3"
+        },
+        {
+            "id": 6,
+            "value": "32GB DDR3"
+        }
     ],
     "STORAGE": [
-        { "id": 1, "value": "246 GB SSD" },
-        { "id": 2, "value": "492 GB SSD" },
-        { "id": 3, "value": "1024 GB SSD" },
-        { "id": 4, "value": "246 GB" },
-        { "id": 5, "value": "492 GB" },
-        { "id": 6, "value": "1024 GB SSD" }
+        {
+            "id": 1,
+            "value": "246 GB SSD"
+        },
+        {
+            "id": 2,
+            "value": "492 GB SSD"
+        },
+        {
+            "id": 3,
+            "value": "1024 GB SSD"
+        },
+        {
+            "id": 4,
+            "value": "246 GB"
+        },
+        {
+            "id": 5,
+            "value": "492 GB"
+        },
+        {
+            "id": 6,
+            "value": "1024 GB SSD"
+        }
     ]
 }
