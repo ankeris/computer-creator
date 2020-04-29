@@ -4,6 +4,7 @@ const initialState = {
     motherboards: [],
     rams: [],
     storages: [],
+    errorMessage: "",
     isLoading: false,
 };
 
@@ -17,7 +18,7 @@ export const GET_ALL_PARTS_REQUEST = "GET_ALL_PARTS_REQUEST";
 export const GET_ALL_PARTS_RESPONSE = "GET_ALL_PARTS_RESPONSE";
 
 // actions
-export const getAllParts = () => ({ type: GET_ALL_PARTS_REQUEST });
+export const getAllPartsRequest = () => ({ type: GET_ALL_PARTS_REQUEST });
 export const getAllPartsResponse = (payload) => ({ type: GET_ALL_PARTS_RESPONSE, payload });
 
 export function computerPartsReducer(state = initialState, { type, payload }) {
@@ -28,7 +29,6 @@ export function computerPartsReducer(state = initialState, { type, payload }) {
                 isLoading: true,
             };
         case GET_ALL_PARTS_RESPONSE:
-            console.log(payload);
             return payload.error
                 ? {
                       ...state,

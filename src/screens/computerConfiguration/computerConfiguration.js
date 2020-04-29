@@ -1,11 +1,17 @@
-import React, { useEffect } from "react";
-import useStyles from "./computerConfiguration-styles";
+import React, { Fragment } from "react";
 import CarConfigurationForm from "./Form/carConfigurationForm";
 import { useFetchParts } from "providers/hooks";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 export default function App() {
-    const classes = useStyles();
-    const { cpus, gpus, motherboards, rams, storages, isLoading } = useFetchParts();
+    const { cpus, gpus, motherboards, rams, storages, isLoading, errorMessage } = useFetchParts();
 
-    return isLoading ? <h1>loading...</h1> : <CarConfigurationForm cpus={cpus} gpus={gpus} motherboards={motherboards} rams={rams} storages={storages} />;
+    return (
+        <Fragment>
+            <h1>Create new computer</h1>
+            {isLoading && <LinearProgress />}
+            {!isLoading && !errorMessage && <CarConfigurationForm cpus={cpus} gpus={gpus} motherboards={motherboards} rams={rams} storages={storages} />}
+            {errorMessage && <h2>{errorMessage}</h2>}
+        </Fragment>
+    );
 }
