@@ -1,45 +1,29 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+import { INPUT_TYPE_TEXT, INPUT_TYPE_SELECT } from "providers/constants";
+import CAFormInput from "components/CAFormInput";
 
-export default function CarConfigurationForm() {
+export default function CarConfigurationForm({ cpus, gpus, motherboards, rams, storages }) {
+    console.log(cpus);
+
+    const inputs = [
+        { id: "computerName", name: "computerName", label: "Computer Name", type: INPUT_TYPE_TEXT, value: "No name", render: true },
+        { id: "cpu", name: "cpu", label: "Central Processing Unit", type: INPUT_TYPE_SELECT, values: ["No name", "No name"], render: true },
+        { id: "gpu", name: "gpu", label: "Graphical Card", type: INPUT_TYPE_SELECT, values: ["No name", "No name"], render: true },
+        { id: "motherboard", name: "motherboard", label: "Motherboard", type: INPUT_TYPE_SELECT, values: ["No name", "No name"], render: true },
+        { id: "ram", name: "ram", label: "RAM", type: INPUT_TYPE_SELECT, values: ["No name", "No name"], render: true },
+        { id: "storage", name: "storage", label: "Storage", type: INPUT_TYPE_SELECT, values: ["No name", "No name"], render: true },
+    ];
     return (
-        <React.Fragment>
-            <Grid container xs={6} spacing={3}>
-                <Grid item xs={12}>
-                    <h1>Configure your computer</h1>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField required id="firstName" name="firstName" label="First name" fullWidth autoComplete="fname" />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField required id="lastName" name="lastName" label="Last name" fullWidth autoComplete="lname" />
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField required id="address1" name="address1" label="Address line 1" fullWidth autoComplete="billing address-line1" />
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField id="address2" name="address2" label="Address line 2" fullWidth autoComplete="billing address-line2" />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField required id="city" name="city" label="City" fullWidth autoComplete="billing address-level2" />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField id="state" name="state" label="State/Province/Region" fullWidth />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField required id="zip" name="zip" label="Zip / Postal code" fullWidth autoComplete="billing postal-code" />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField required id="country" name="country" label="Country" fullWidth autoComplete="billing country" />
-                </Grid>
-                <Grid item xs={12}>
-                    <FormControlLabel control={<Checkbox color="secondary" name="saveAddress" value="yes" />} label="Use this address for payment details" />
-                </Grid>
-            </Grid>
-        </React.Fragment>
+        <Grid container spacing={3}>
+            {inputs.map(
+                ({ render, ...rest }) =>
+                    render && (
+                        <Grid item xs={12} key={rest.id}>
+                            <CAFormInput {...rest} />
+                        </Grid>
+                    )
+            )}
+        </Grid>
     );
 }

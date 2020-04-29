@@ -1,12 +1,12 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
+import { createStore, combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
-import { computerReducer } from "modules/computer/computerReducers";
+import { computerPartsReducer } from "modules/computer/computerPartsReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || null;
 
 export default createStore(
     combineReducers({
-        form: computerReducer,
+        computerParts: computerPartsReducer,
     }),
     composeEnhancers()
 );
