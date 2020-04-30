@@ -1,4 +1,5 @@
 import React from "react";
+import { LinearProgress, Typography } from "@material-ui/core";
 import { Button, Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { RouteConfigs } from "routes";
@@ -8,7 +9,8 @@ export default function Landing() {
     const classes = useStyles();
     return (
         <Box className={classes.root}>
-            <h1>Computer Creator App</h1>
+            <Typography variant="h2">Computer Creator App</Typography>
+            <Typography>In this app you can configure your own computer and it will be added to the existing computers database</Typography>
             <Link to={RouteConfigs.COMP_CONFIGURATION.path} color="primary">
                 <Button fullWidth variant="contained" size="large">
                     Create new computer

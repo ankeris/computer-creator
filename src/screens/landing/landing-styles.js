@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
     root: {
         "& > *": {
-            margin: `${theme.spacing(1)}px 0`,
+            margin: `${theme.spacing(3)}px 0`,
             display: "block",
         },
     },

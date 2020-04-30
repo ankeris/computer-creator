@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Controller } from "react-hook-form";
 import { InputLabel, MenuItem, FormControl, TextField, Select } from "@material-ui/core";
 import { INPUT_TYPE_SELECT, INPUT_TYPE_TEXT } from "providers/constants";

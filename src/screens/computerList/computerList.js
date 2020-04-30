@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { List } from "@material-ui/core";
 import { useComputersList } from "providers/hooks";
-import LinearProgress from "@material-ui/core/LinearProgress";
+import { LinearProgress, Typography } from "@material-ui/core";
 import CAComputerPreview from "components/CAComputerPreview/CAComputerPreview";
 
 export default function ComputerList() {
@@ -21,7 +21,9 @@ export default function ComputerList() {
 
     return (
         <Fragment>
-            <h1>Computers list</h1>
+            <Typography variant="h4" gutterBottom>
+                Computers list
+            </Typography>
             {isFetchingComputers && <LinearProgress />}
             {!isFetchingComputers && computers.length && (
                 <List>
